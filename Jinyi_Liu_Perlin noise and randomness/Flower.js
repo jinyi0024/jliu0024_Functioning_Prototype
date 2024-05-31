@@ -28,6 +28,7 @@ class Flower {
     const interactRadius = 500;  // Radius for mouse interaction
     let d = dist(mouseX, mouseY, this.x, this.y);  // Distance from mouse to flower center
     let interactEffect = max(0, (interactRadius - d) / interactRadius);  // Calculate effect based on proximity
+    //https://www.geeksforgeeks.org/p5-js-max-function/
 
     for (let e = 1; e < this.leaveNumber; e++) {
       let nX = noise(this.noiseOffset + e * 0.1) * 200 - 1;  // X noise adjustment.
@@ -36,7 +37,7 @@ class Flower {
       stroke(this.colours[e]);  // Use stored color for each leaf
       noFill();
       // Calculate angle from flower center to mouse
-      let angle = atan2(mouseY - this.y, mouseX - this.x);
+      let angle = atan2(mouseY - this.y, mouseX - this.x);//reference | p5.js. (n.d.). https://p5js.org/reference/#/p5/atan2
 
       // Adjust leaf endpoints to move away from mouse
       let dx = cos(angle) * 50 * interactEffect;  // X displacement
